@@ -17,7 +17,8 @@ in pkgs.mkShell {
     pkgs.nodePackages_latest.typescript-language-server
   ];
 
+  # RUSTFLAGS var to set a path for the linker to recognize
   shellHook = ''
     export RUSTFLAGS="-L /home/lcb/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/wasm32-unknown-unknown/lib"
-  ''
+  '';
 }
