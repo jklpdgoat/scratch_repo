@@ -13,6 +13,7 @@ in pkgs.mkShell {
 
     pkgs.nodejs
     pkgs.wasm-pack
+    pkgs.nodePackages_latest.svelte-language-server
     pkgs.nodePackages_latest.typescript-language-server
   ];
 }
