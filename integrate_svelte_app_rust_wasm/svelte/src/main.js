@@ -15,6 +15,11 @@ import wasm from '../../rust/Cargo.toml';
 const init = async() => {
 	const bindings = await wasm();
 	const app = new App({
-		target: document.body
+		target: document.body,
+		props: {
+			bindings,
+		},
 	});
-}
+};
+
+init();
