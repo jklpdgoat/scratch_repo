@@ -10,6 +10,8 @@ in pkgs.mkShell {
     pkgs.cargo
     pkgs.rustc
 
+    pkgs.rust-analyzer
+
     pkgs.nodejs
     pkgs.wasm-pack
   ];
