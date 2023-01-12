@@ -23,7 +23,12 @@
             pkg-config
             exa
             fd
+
+            nodejs
+            nodePackages.svelte-language-server
+            
             rust-bin.stable.latest.default
+            rust-analyzer
           ];
 
           shellHook = ''
