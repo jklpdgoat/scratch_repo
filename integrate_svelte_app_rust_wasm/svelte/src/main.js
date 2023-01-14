@@ -3,6 +3,9 @@ import App from './App.svelte';
 // User defined imports
 import wasm from '../../rust/Cargo.toml';
 
+// Import carbon components
+import "carbon-components-svelte/css/g80.css"
+
 // const app = new App({
 // 	target: document.body,
 // 	props: {

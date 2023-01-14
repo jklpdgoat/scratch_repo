@@ -35,7 +35,7 @@
           shellHook = ''
             alias ls=exa
             alias find=fd
-            export RUSTFLAGS="-L ~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/wasm32-unknown-unknown/lib/"
+            export RUSTFLAGS="-L $HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/wasm32-unknown-unknown/lib/"
           '';
         };
       }
