@@ -14,6 +14,21 @@ impl Car {
             color: 0,
         }
     }
+
+    pub fn duplicate(&self) -> Self {
+        Self {
+            number: self.number + 1,
+            color: self.color,
+        }
+    }
+
+    pub fn change_number(&mut self, number: usize) {
+        self.number = number;
+    }
+
+    pub fn change_color(&mut self, color: usize) {
+        self.color = color;
+    }
 }
 
 #[wasm_bindgen]
