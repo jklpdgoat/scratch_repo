@@ -4,4 +4,16 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    return {"message": "Hello World"}
+    return {"message": "Reload!###########"}
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: float):
+    return {"item_id": item_id}
+
+@app.get("/users/me")
+async def read_user_me():
+    return {"user_id": "the current user"}
+
+@app.get("/users/{user_id})")
+async def read_user_me(user_id: str):
+    return {"user_id": "user_id"}
