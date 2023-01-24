@@ -1,11 +1,8 @@
-from enum import Enum
-from fastapi import FastAPI
+# from enum import Enum
+from fastapi import Body, FastAPI
 from pydantic import BaseModel
 
-class ModelName(str, Enum):
-    alexnet = "alexnet"
-    resnet = "resnet"
-    lenet = "lenet"
+app = FastAPI()
 
 class Item(BaseModel):
     name: str
@@ -13,56 +10,20 @@ class Item(BaseModel):
     price: float
     tax: float | None = None
 
-app = FastAPI()
-
-fake_items_db = [{"item_name": "Foo"}, {"item_name": "Bar"}, {"item_name": "Baz"}]
+class User(BaseModel):
+    username: str
+    full_name: str | None = None
 
 @app.put("/items/{item_id}")
-async def create_item(item_id: int, item: Item, q: str | None = None):
-    result = {"item_id": item_id, **item.dict()}
+async def update_item(
+    *,
+    item_id: int,
+    item: Item,
+    user: User,
+    importance: int = Body(gt=0),
+    q: str | None = None
+):
+    results = {"item_id": item_id, "item": item, "user": user, "impotance": importance}
     if q:
-        result.update({"q": q})
-    return result
-    # item_dict = item.dict()
-    # if item.tax:
-    #     price_with_tax = item.price + item.tax
-    #     item_dict.update({"price_with_tax": price_with_tax})
-    # return {"item_id": item_id, **item.dict()}
-
-# @app.get("/items/")
-# async def read_item(skip: int = 0, limit: int = 10):
-#     return fake_items_db[skip : skip + limit]
-
-# @app.get("items/{item_id}")
-# async def read_user_item(
-#     item_id: str, needy: str, skip: int = 0, limit: int | None = None
-# ):
-#     item = {"item_id": item_id, "needy": needy, "skip": skip, "limit": limit}
-#     return item
-
-# @app.get("/users/{user_id}/items/{item_id}")
-# async def read_user_item(
-#     user_id: int, item_id: str, q: str | None = None, short: bool = False
-# ):
-#     item = {"item_id": item_id, "owner_id": user_id}
-#     if q:
-#         item.update({"q": q})
-#     if not short:
-#         item.update(
-#             {"description": "This is an amazing item that has a long description"}
-#         )
-#     return item
-
-@app.get("/models/{model_name}")
-async def get_model(model_name: ModelName):
-    if model_name is ModelName.alexnet:
-        return {"model_name": model_name, "message": "Deep Learning FTW!"}
-
-    if model_name.value == "lenet":
-        return {"model_name": model_name, "message": "LeCNN all the images"}
-
-    return {"model_name": model_name, "message": "Have some residuals"}
-
-@app.get("/files/{file_path:path}")
-async def read_file(file_path: str):
-    return {"file_path": file_path}
+        results.update({"q": q})
+    return results
