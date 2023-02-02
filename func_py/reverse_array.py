@@ -6,6 +6,6 @@ def reverseList(A, start, end):
 
 A = [ 1, 2, 3, 4, 5, 6 ]
 print(A)
-reverseList("Reversed list is")
+reverseList(A, 0, 5)
 print("Reversed list is")
 print(A)
