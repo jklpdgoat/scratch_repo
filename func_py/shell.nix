@@ -9,6 +9,7 @@ pkgs.mkShell {
       (pylsp-mypy.overridePythonAttrs (_: { doCheck = false; }))
       pip
       uvicorn
+      requests
     ]))
 
     pkgs.curl
