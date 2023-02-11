@@ -38,4 +38,6 @@ def binary_search(list_num , to_search):
 
 list_container = [16 , 18 , 20 , 50 , 60 , 81 , 84 , 89]
 print(binary_search(list_container , 81))
+print(binary_search(list_container , 50))
 print(binary_search(list_container , 10))
+print(binary_search(list_container , 100))

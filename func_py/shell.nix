@@ -14,5 +14,6 @@ pkgs.mkShell {
 
     pkgs.curl
     pkgs.jq
+    pkgs.poetry
   ];
 }
