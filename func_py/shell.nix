@@ -10,11 +10,14 @@ pkgs.mkShell {
       pip
       uvicorn
       requests
-      pendulum
     ]))
 
     pkgs.curl
     pkgs.jq
+  ];
+
+  buildInputs = [
     pkgs.poetry
   ];
+
 }
