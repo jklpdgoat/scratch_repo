@@ -16,8 +16,8 @@ pkgs.mkShell {
     pkgs.jq
   ];
 
-  buildInputs = [
-    pkgs.poetry
-  ];
+  # buildInputs = [
+  #   pkgs.poetry
+  # ];
 
 }
