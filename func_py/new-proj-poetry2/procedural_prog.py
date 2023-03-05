@@ -25,3 +25,5 @@ cube = increment ** 3
 print(cube)
 decrement = cube - 1
 print(decrement)
+res = starting_number + cube
+print(res)
