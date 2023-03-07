@@ -18,3 +18,27 @@ def parent():
 
     second_child()
     first_child()
+
+def parentv2(num):
+    def first_child():
+        return "Hi, I am Emma"
+
+    def second_child():
+        return "Call me Liam"
+
+    if num == 1:
+        return first_child
+    else:
+        return second_child
+
+def my_decorator(func):
+    def wrapper():
+        print("Something is happning before the functionn is called.")
+        func()
+        print("Something is happening after the function is called.")
+    return wrapper
+
+def say_whee():
+    print("Whee!")
+
+say_whee = my_decorator(say_whee)
